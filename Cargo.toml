@@ -1,0 +1,32 @@
+[package]
+name = "auth-rs"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default=["dev"]
+dev=["oauth", "bearer", "jwt", "cookie", "axum"]
+oauth=[]
+bearer=[]
+jwt=[]
+cookie=[]
+axum = ["dep:axum-core"]
+
+
+[dependencies]
+async-trait = "0.1.81"
+axum-core = { version = "0.4.3", optional = true }
+derive-new = "0.7.0"
+http = "1.1.0"
+tower-layer = "0.3.3"
+tower-service = "0.3.3"
+
+
+[dev-dependencies]
+anyhow = "1.0.87"
+bytes = "1.7.1"
+futures-util = "0.3.30"
+http-body = "1.0.1"
+http-body-util = "0.1.2"
+tokio = { version = "1.40.0", features = ["full"] }
+tower = { version = "0.5.0", features = ["full"] }

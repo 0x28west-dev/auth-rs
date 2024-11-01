@@ -1,0 +1,23 @@
+Creates a new BufReader<R> with the specified buffer capacity.
+
+Examples
+Creating a buffer with ten bytes of capacity:
+
+use std::io::BufReader;
+use std::fs::File;
+
+fn main() -> std::io::Result<()> {
+    let f = File::open("log.txt")?;
+    let reader = BufReader::with_capacity(10, f);
+    Ok(())
+}
+source
+impl<R: ?Sized> BufReader<R>
+1.0.0 · source
+pub fn get_ref(&self) -> &R
+Gets a reference to the underlying reader.
+
+It is inadvisable to directly read from the underlying reader.
+
+Examples
+use std::io::Bu
